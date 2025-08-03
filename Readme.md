@@ -29,6 +29,7 @@ A full-stack social networking platform.
 - **Profile Pages**: Individual user profiles with their posts
 
 ### ⭐ Extra Features
+- **Edit Post ann Delete Post**: Authenticate user can edit or delete their post
 - **Real-time Timestamps**: "2 minutes ago" format
 - **Input Validation**: Form validation and error handling
 - **Responsive Design**: Mobile-friendly interface
@@ -177,6 +178,8 @@ npm run dev
 - `GET /getallpost` - Get all posts (public feed)
 - `POST /createpost` - Create new post (protected)
 - `GET /getpost/:userId` - Get user's posts
+- `GET /editpost/:postId` - Edit the existing post
+- `GET /deletepost/:postId` - Delete post
 
 ### Users
 - `GET /getUser/:id` - Get user profile
@@ -189,6 +192,8 @@ npm run dev
 3. **Create posts** from the home feed
 4. **View profiles** by clicking on usernames
 5. **Update your profile** bio and information
+6. **Update your post** by clicking on Edit
+7. **Delete your post** by clicking on Delete
 
 ## 📱 Screenshots & Features Demo
 

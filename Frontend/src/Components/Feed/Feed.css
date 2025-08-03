@@ -71,6 +71,12 @@
   transition: background-color 0.2s;
 }
 
+.cancel-button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 20px;
+}
+
 .post-button:hover:not(:disabled) {
   background-color: #004182;
 }
@@ -101,6 +107,8 @@
 
 .post-header {
   margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .author-link {
@@ -152,4 +160,34 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.edit-btn,
+.delete-btn {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  max-height: max-content;
+}
+
+.edit-btn:hover {
+  background-color: #d4edda;
+}
+
+.delete-btn:hover {
+  background-color: #f8d7da;
+}
+
+.edit-cancel {
+  display: flex;
+  gap: 10px;
 }

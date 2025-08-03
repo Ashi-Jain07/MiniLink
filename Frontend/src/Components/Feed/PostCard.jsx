@@ -1,24 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/authContext';
 import './Feed.css';
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, onDelete, onEdit }) => {
+  const { user } = useAuth();
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const now = new Date();
     const diffInMinutes = Math.floor((now - date) / (1000 * 60));
-    
+
     if (diffInMinutes < 1) return 'Just now';
     if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
-    
+
     const diffInHours = Math.floor(diffInMinutes / 60);
     if (diffInHours < 24) return `${diffInHours}h ago`;
-    
+
     const diffInDays = Math.floor(diffInHours / 24);
     if (diffInDays < 7) return `${diffInDays}d ago`;
-    
+
     return date.toLocaleDateString();
   };
+
+  const isAuthor = user && user.id?.toString() === post.author._id?.toString();
 
   return (
     <div className="post-card">
@@ -34,8 +39,14 @@ const PostCard = ({ post }) => {
             </div>
           </Link>
         </div>
+        {isAuthor && (
+          <div className="post-actions">
+            <button onClick={() => onEdit(post)} className="edit-btn">Edit</button>
+            <button onClick={() => onDelete(post._id)} className="delete-btn">Delete</button>
+          </div>
+        )}
       </div>
-      
+
       <div className="post-content">
         <p>{post.content}</p>
       </div>
